@@ -1,15 +1,14 @@
 import { Footer } from './components/footer'
-import { Search } from './components/search'
+import { Header } from './components/header'
+import { Outlet } from 'react-router'
 
 function App() {
 
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">    Hello world!  </h1>
-      <Search />
-      <Footer />
-    </>
-  )
+  return <div className='flex flex-col min-h-screen justify-between'>
+    <Header />
+    <Outlet />
+    <Footer />
+  </div>
 }
 
 export default App

@@ -1,3 +1,5 @@
+import { Card } from "@/components/Card";
+import { Query } from "@/types";
 import { gql, useLazyQuery } from "@apollo/client";
 import { useState } from "react"
 
@@ -22,32 +24,6 @@ query Anime($query: String!) {
 }
 `
 
-type Media = {
-    id: number
-    coverImage: {
-        extraLarge: string
-        large: string
-        medium: string
-    },
-    title: {
-        romaji: string
-        english: string
-        native: string
-    },
-    description: string
-}
-
-type Query = {
-    Page: {
-        pageInfo: {
-            currentPage: number
-            hasNextPage: boolean
-            perPage: number
-        },
-        media: [Media]
-    }
-}
-
 export function Search() {
     const [query, setQuery] = useState('');
     const [searchMedia, { data }] = useLazyQuery<Query>(SearchAnime);
@@ -65,11 +41,15 @@ export function Search() {
     console.log(data);
 
     return <div>
-        <input type="text" placeholder="Search" value={query} onChange={handleChange} onKeyDown={handleKeyDown} />
-        {data?.Page.media.map(media => <div className="border" key={media.id}>
-            <img src={media.coverImage.large} />
-            {media.title.romaji}
-            <p>{media.description}</p>
-        </div>)}
+        <input
+            className="border rounded h-10"
+            type="text"
+            placeholder="Search"
+            value={query}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+        />
+        {data?.Page.media.map(media => <Card key={media.id} media={media}
+        />)}
     </div>
 }
