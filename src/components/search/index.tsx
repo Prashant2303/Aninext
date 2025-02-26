@@ -1,9 +1,9 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useLazyQuery } from "@apollo/client";
 import { useState } from "react"
 
 const SearchAnime = gql`
 query Anime($query: String!) {
-  Page(page: 1, perPage: 5) {
+  Page(page: 1) {
     media(search: $query) {
       id,
       title {
@@ -12,47 +12,64 @@ query Anime($query: String!) {
         romaji
       },
       coverImage {
-        extraLarge
-      }
+        extraLarge,
+        large,
+        medium
+      },
+      description
     }
   }
 }
 `
+
+type Media = {
+    id: number
+    coverImage: {
+        extraLarge: string
+        large: string
+        medium: string
+    },
+    title: {
+        romaji: string
+        english: string
+        native: string
+    },
+    description: string
+}
+
 type Query = {
-    data: {
-        Page: {
-            pageInfo: {
-                currentPage: number
-                hasNextPage: boolean
-                perPage: number
-            },
-            media: [{
-                id: number
-                coverImage: {
-                    extraLarge: string
-                },
-                title: {
-                    romanji: string
-                }
-            }]
-        }
+    Page: {
+        pageInfo: {
+            currentPage: number
+            hasNextPage: boolean
+            perPage: number
+        },
+        media: [Media]
     }
 }
 
 export function Search() {
     const [query, setQuery] = useState('');
-    const { data } = useQuery(SearchAnime, {
-        variables: {
-            query
-        }
-    });
-    console.log(data);
+    const [searchMedia, { data }] = useLazyQuery<Query>(SearchAnime);
 
-    function handleChange(e) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setQuery(e.target.value);
     }
 
+    function handleKeyDown(e: React.KeyboardEvent) {
+        if (e.key === "Enter") {
+            searchMedia({ variables: { query } })
+        }
+    }
+
+    console.log(data);
+
     return <div>
-        <input type="text" placeholder="Search" value={query} onChange={handleChange} />
+        <input type="text" placeholder="Search" value={query} onChange={handleChange} onKeyDown={handleKeyDown} />
+        {data?.Page.media.map(media => <div className="border" key={media.id}>
+            <img src={media.coverImage.large} />
+            {media.title.romaji}
+            <p>{media.description}</p>
+        </div>)}
     </div>
 }
