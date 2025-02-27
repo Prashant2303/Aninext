@@ -23,3 +23,43 @@ export type Query = {
         media: [Media]
     }
 }
+
+export enum MediaSort {
+    'CHAPTER',
+    'CHAPTERS_DESC',
+    'DURATION',
+    'DURATION_DESC',
+    'END_DATE',
+    'END_DATE_DESC',
+    'EPISODES',
+    'EPISODES_DESC',
+    'FAVOURITES',
+    'FAVOURITES_DESC',
+    'FORMAT',
+    'FORMAT_DESC',
+    'ID',
+    'ID_DESC',
+    'POPULARITY',
+    'POPULARITY_DESC',
+    'SCORE',
+    'SCORE_DESC',
+    'SEARCH_MATCH',
+    'START_DATE',
+    'START_DATE_DESC',
+    'STATUS',
+    'STATUS_DESC',
+    'TITLE_ENGLISH',
+    'TITLE_ENGLISH_DESC',
+    'TITLE_NATIVE',
+    'TITLE_NATIVE_DESC',
+    'TITLE_ROMAJI',
+    'TITLE_ROMAJI_DESC',
+    'TRENDING',
+    'TRENDING_DESC',
+    'TYPE',
+    'TYPE_DESC',
+    'UPDATED_AT',
+    'UPDATED_AT_DESC',
+    'VOLUMES',
+    'VOLUMES_DESC'
+}

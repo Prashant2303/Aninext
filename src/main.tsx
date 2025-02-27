@@ -5,7 +5,7 @@ import App from './App.tsx'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { MediaPage } from './pages/media/index.tsx'
-import { Search } from './pages/search/index.tsx'
+import { Home } from './pages/home/index.tsx'
 
 const client = new ApolloClient({
   uri: 'https://graphql.anilist.co',
@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')!).render(
       <ApolloProvider client={client}>
         <Routes>
           <Route element={<App />} >
-            <Route path='/' element={<Search />} />
+            <Route path='/' element={<Home />} />
             <Route path='/media/:id' element={<MediaPage />} />
           </Route>
         </Routes>

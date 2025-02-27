@@ -1,33 +1,15 @@
+import { GetMedia } from "@/service";
 import { Media } from "@/types";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useParams } from "react-router"
 
-const GetMediaById = gql`
-query getMediaById($id: Int!) {
-    Media(id: $id) {
-        id,
-        title {
-            english,
-            native,
-            romaji
-        },
-        coverImage {
-            extraLarge,
-            large,
-            medium
-        },
-        description
-    }
-}
-`
 type TMedia = {
     Media: Media
 }
 
 export function MediaPage() {
     const { id } = useParams();
-    const { data, loading } = useQuery<TMedia>(GetMediaById, { variables: { id } });
-    console.log(data?.Media.title.romaji);
+    const { data, loading } = useQuery<TMedia>(GetMedia, { variables: { id } });
 
     return <div>
         {loading ? <div>Loading...</div>

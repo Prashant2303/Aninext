@@ -4,9 +4,11 @@ import { Outlet } from 'react-router'
 
 function App() {
 
-  return <div className='flex flex-col min-h-screen justify-between'>
+  return <div className='flex flex-col min-h-screen justify-between items-center'>
     <Header />
-    <Outlet />
+    <section className='p-2'>
+      <Outlet />
+    </section>
     <Footer />
   </div>
 }
