@@ -11,6 +11,39 @@ export type Media = {
         native: string
     },
     description: string
+    characters: {
+        edges: [{
+            id: number
+            name: string
+            role: string
+            node: {
+                id: number
+                image: {
+                    medium: string
+                }
+                name: {
+                    full: string
+                }
+            }
+            voiceActors: [{
+                id: number
+                name: {
+                    full: string
+                }
+                image: {
+                    medium: string
+                }
+            }]
+        }]
+    }
+    episodes: number
+    season: string
+    seasonYear: number
+    startDate: {
+        day: number
+        month: number
+        year: number
+    }
 }
 
 export type Query = {

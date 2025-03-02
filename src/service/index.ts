@@ -33,6 +33,39 @@ query getMediaById($id: Int!) {
             medium
         },
         description(asHtml: false)
+        characters {
+          edges {
+            id
+            name
+            role
+            node {
+              id
+              image {
+                medium
+              }
+              name {
+                full
+              }
+            }
+            voiceActors {
+              id
+              name {
+                full
+              }
+              image {
+                medium
+              }
+            }
+          }
+        }
+        episodes
+        season
+        seasonYear
+        startDate {
+          day
+          month
+          year
+        }
     }
 }
 `
