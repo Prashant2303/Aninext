@@ -2,7 +2,10 @@
 
 Webapp built using Anilist graphQL api and Tailwind CSS. Running on a docker container deployed on AWS EC2 instance. Made for learning purposes only.
 
-![img](/public/Home.png)![img](/public/Media.png)
+<h1>Hi</h1>
+<img src="/public/Home.png" alt="drawing" width="200"/>
+<!-- <img src="drawing.jpg"  -->
+<!-- ![img](/public/Home.png)![img](/public/Media.png) -->
 
 # React + TypeScript + Vite
 
