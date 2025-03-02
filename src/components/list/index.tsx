@@ -1,5 +1,5 @@
 import { Media } from "@/types";
-import { Card } from "../Card";
+import { Card } from "../card";
 
 export function List(props: { title: string, loading: boolean, media: Media[] | undefined }) {
     const { title, loading, media } = props;
