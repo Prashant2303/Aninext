@@ -15,7 +15,7 @@ RUN npm install \
 COPY . .
 
 # Install node packages, install serve, build the app, and remove dependencies at the end
-RUN && npm run build \
+RUN npm run build \
     && rm -fr node_modules
 
 # app is running on port 3000 so expose 3000. When running the container, map it to port 80:- docker run -p 80:3000 aninext
