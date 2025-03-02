@@ -4,9 +4,9 @@ import { Outlet } from 'react-router'
 
 function App() {
 
-  return <div className='flex flex-col min-h-screen justify-between items-center'>
+  return <div>
     <Header />
-    <section className='p-2'>
+    <section className='p-4 xl:mx-40'>
       <Outlet />
     </section>
     <Footer />

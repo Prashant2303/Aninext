@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
-import { Search } from "../search";
 import { Query } from "@/types";
-import { Card } from "@/components/Card";
 import { GetMediaList } from "@/service";
+import { SearchBox } from "@/components/searchbox";
+import { List } from "@/components/list";
 
 export function Home() {
   const { data, loading } = useQuery<Query>(GetMediaList, {
@@ -14,11 +14,7 @@ export function Home() {
   });
 
   return <div>
-    <Search />
-    <h2 className="text-xl">Trending Anime</h2>
-    {loading ? <div>Loading...</div> :
-      <div className="flex flex-wrap gap-4 justify-center" >
-        {data?.Page.media.map(media => <Card key={media.id} media={media} />)}
-      </div>}
-  </div>
+    <SearchBox />
+    <List title="Trending Anime" loading={loading} media={data?.Page.media} />
+  </div >
 }

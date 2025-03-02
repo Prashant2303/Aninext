@@ -1,5 +1,5 @@
-import reactLogo from '@/assets/react.svg';
-import viteLogo from '@/assets/vite.svg';
+import reactLogo from '/react.svg';
+import viteLogo from '/vite.svg';
 
 export function Footer() {
     return <footer className='flex justify-center gap-2 py-2'>
