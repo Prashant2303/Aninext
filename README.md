@@ -1,3 +1,9 @@
+# AniNext
+
+Webapp built using Anilist graphQL api and Tailwind CSS. Running on a docker container deployed on AWS EC2 instance. Made for learning purposes only.
+
+![img](/public/Home.png)![img](/public/Media.png)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
