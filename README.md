@@ -2,8 +2,10 @@
 
 Webapp built using Anilist graphQL api, Apollo Client and Tailwind CSS. Running on a docker container deployed on AWS EC2 instance. Made for learning purposes only.
 
+<div style="display: flex;">
 <img src="/public/Home.png" width="350"/>
 <img src="/public/Media.png" width="350"/>
+</div>
 
 # React + TypeScript + Vite
 
