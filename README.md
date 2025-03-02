@@ -1,11 +1,9 @@
 # AniNext
 
-Webapp built using Anilist graphQL api and Tailwind CSS. Running on a docker container deployed on AWS EC2 instance. Made for learning purposes only.
+Webapp built using Anilist graphQL api, Apollo Client and Tailwind CSS. Running on a docker container deployed on AWS EC2 instance. Made for learning purposes only.
 
-<h1>Hi</h1>
-<img src="/public/Home.png" alt="drawing" width="200"/>
-<!-- <img src="drawing.jpg"  -->
-<!-- ![img](/public/Home.png)![img](/public/Media.png) -->
+<img src="/public/Home.png" width="400"/>
+<img src="/public/Media.png" width="400"/>
 
 # React + TypeScript + Vite
 
